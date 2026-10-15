@@ -3,7 +3,7 @@
 A lightweight, fully client-side Book Tracker web app built with plain HTML, CSS and JavaScript — no frameworks, no build step, no account needed.
 
 ## 🔗 Live Demo
-> [View Live on GitHub Pages](https://your-username.github.io/book-tracker)
+> [View Live on GitHub Pages](https://github.com/ashwintb36/Book-tracker)
 
 ---
 
