@@ -84,20 +84,20 @@ That's it — no server, no install.
 
 ## 📄 Prompts Used
 
-See [PROMPTS.md](./PROMPTS.md) for the five key prompts used to build this project with AI assistance.
+ The five key prompts used to build this project with AI assistance.
 
 # Prompt Log
 
-1. **Prompt:** "I want to build a Book Tracker web page using plain HTML, CSS and JavaScript. Features: add a book with title, author and status, show the list newest first, search, change status, and keep the data after a refresh[span_17](start_span)[span_17](end_span)."
+1. **Prompt:** "I want to build a Book Tracker web page using plain HTML, CSS and JavaScript. Features: add a book with title, author and status, show the list newest first, search, change status, and keep the data after a refresh."
    - **What happened:** The foundational file structure, form elements, and basic list rendering were successfully generated.
 
-2. **Prompt:** "Add a search box above the list. As I type, show only books whose title or author contains the text, ignoring capital letters[span_18](start_span)[span_18](end_span)."
-   - **What happened:** Searching worked for lowercase entries, but uppercase searches (e.g., "BEN") failed because case sensitivity wasn't handled properly[span_19](start_span)[span_19](end_span).
-   - **Bug Fix:** Updated the search logic to convert both input terms and book text to lowercase using `.toLowerCase()`[span_20](start_span)[span_20](end_span).
+2. **Prompt:** "Add a search box above the list. As I type, show only books whose title or author contains the text, ignoring capital letters"
+   - **What happened:** Searching worked for lowercase entries, but uppercase searches (e.g., "BEN") failed because case sensitivity wasn't handled properly.
+   - **Bug Fix:** Updated the search logic to convert both input terms and book text to lowercase using `.toLowerCase().
 
-3. **Prompt:** "Save the book list in localStorage so it is still there after a refresh[span_21](start_span)[span_21](end_span)[span_22](start_span)[span_22](end_span)."
-   - **What happened:** The book list was saved, but changing a book's status reset the status back to 'To read' upon reloading the page[span_23](start_span)[span_23](end_span).
-   - **Bug Fix:** Notified the AI about the status persistence bug, and it corrected the array mapping and state-saving handlers[span_24](start_span)[span_24](end_span).
+3. **Prompt:** "Save the book list in localStorage so it is still there after a refresh[span_21]."
+   - **What happened:** The book list was saved, but changing a book's status reset the status back to 'To read' upon reloading the page.
+   - **Bug Fix:** Notified the AI about the status persistence bug, and it corrected the array mapping and state-saving handlers.
 
 4. **Prompt:** "Add remarks and page number tracking with interactive update buttons for each book card."
    - **What happened:** The buttons were initially unclickable due to layout stacking overlaps and incorrect index references when reversing the list display.
