@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <div class="card">
+
+      <!-- Title -->
+      <h1 class="app-title">My Book Tracker</h1>
+
+      <!-- ── Add Book Form ───────────────────────── -->
+      <form id="add-book-form" novalidate>
+
+        <!-- Title -->
+        <div class="field-group">
+          <label for="input-title" class="field-label">Title <span class="req">*</span></label>
+          <input
+            type="text"
+            id="input-title"
+            class="field-input"
+            placeholder="Enter book title"
+            autocomplete="off"
+            aria-required="true"
+            aria-describedby="err-title"
+          />
+          <p class="field-error" id="err-title" role="alert" aria-live="polite"></p>
+        </div>
+
+        <!-- Author -->
+        <div class="field-group">
+          <label for="input-author" class="field-label">Author <span class="req">*</span></label>
+          <input
+            type="text"
+            id="input-author"
+            class="field-input"
+            placeholder="Enter author name"
+            autocomplete="off"
+            aria-required="true"
+            aria-describedby="err-author"
+          />
+          <p class="field-error" id="err-author" role="alert" aria-live="polite"></p>
+        </div>
+
+        <!-- Status -->
+        <div class="field-group">
+          <label for="input-status" class="field-label">Status</label>
+          <select id="input-status" class="field-input field-select">
+            <option value="to-read">To read</option>
+            <option value="reading">Reading</option>
+            <option value="finished">Finished</option>
+          </select>
+        </div>
+
+        <!-- Remarks -->
+        <div class="field-group">
+          <label for="input-remarks" class="field-label">Remarks / Notes <span class="optional">(Optional)</span></label>
+          <input
+            type="text"
+            id="input-remarks"
+            class="field-input"
+            placeholder="e.g., Chapter 3 complete or Great ending!"
+            autocomplete="off"
+            maxlength="300"
+          />
+        </div>
+
+        <!-- Current Page + Total Pages -->
+        <div class="pages-row">
+          <div class="field-group">
+            <label for="input-pages-read" class="field-label">Current Page</label>
+            <input
+              type="number"
+              id="input-pages-read"
+              class="field-input"
+              placeholder="0"
+              min="0"
+              max="99999"
+            />
+          </div>
+          <div class="field-group">
+            <label for="input-pages-total" class="field-label">Total Pages</label>
+            <input
+              type="number"
+              id="input-pages-total"
+              class="field-input"
+              placeholder="0"
+              min="1"
+              max="99999"
+            />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-add">Add Book</button>
+
+      </form>
+
+      <!-- ── Search ──────────────────────────────── -->
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search by title, author, or remarks..."
+        aria-label="Search books"
+      />
+
+      <!-- ── Book List ───────────────────────────── -->
+      <div id="book-list"></div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="empty-state" hidden>
+        <p>No books added yet. Add your first book above!</p>
+      </div>
+
+      <!-- No results -->
+      <div id="no-results" class="empty-state" hidden>
+        <p>No books match your search.</p>
+      </div>
+
+    </div><!-- /.card -->
+  </div>
+
+  <!-- Update Pages Modal -->
+  <div id="pages-modal-overlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <h3 class="modal-title">Update Pages</h3>
+      <div class="modal-body">
+        <div class="field-group">
+          <label class="field-label">Current Page</label>
+          <input type="number" id="modal-pages-read" class="field-input" min="0" max="99999" placeholder="0" />
+        </div>
+        <div class="field-group">
+          <label class="field-label">Total Pages</label>
+          <input type="number" id="modal-pages-total" class="field-input" min="1" max="99999" placeholder="0" />
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="modal-save-pages" class="btn-teal">Save</button>
+        <button id="modal-cancel-pages" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Notes Modal -->
+  <div id="notes-modal-overlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <h3 class="modal-title">Edit Notes</h3>
+      <div class="modal-body">
+        <div class="field-group">
+          <label class="field-label">Remarks / Notes</label>
+          <textarea id="modal-notes" class="field-input field-textarea" rows="4" maxlength="300"
+            placeholder="Write your thoughts, quotes, or notes…"></textarea>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="modal-save-notes" class="btn-green">Save</button>
+        <button id="modal-cancel-notes" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
